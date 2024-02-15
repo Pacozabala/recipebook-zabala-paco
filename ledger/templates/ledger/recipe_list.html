@@ -1,0 +1,19 @@
+<!-- templates/ledger/recipe_list.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Recipe List</title>
+</head>
+<body>
+	<h1>Recipe Book</h1>
+	{% for recipe in recipes %}
+		<h2>{{ recipe.name }}</h2>
+		<ul>
+			{% for ingredient in recipe.ingredients %}
+				<li>{{ ingredient.name }}: {{ ingredient.quantity }}</li>
+			{% endfor %}
+		</ul>
+		<a href="{{ recipe.link }}">Recipe Link</a>
+	{% endfor %}
+</body>
+</html>
