@@ -6,14 +6,17 @@
 </head>
 <body>
 	<h1>Recipe Book</h1>
-	{% for recipe in recipes %}
-		<h2>{{ recipe.name }}</h2>
-		<ul>
-			{% for ingredient in recipe.ingredients %}
-				<li>{{ ingredient.name }}: {{ ingredient.quantity }}</li>
-			{% endfor %}
-		</ul>
-		<a href="{{ recipe.link }}">Recipe Link</a>
+	<h2>Please see the recipes below:</h2>
+	{% for item in recipes %}
+		<li>
+			<h3>{{ item.name }}</h3>
+			<ul>
+				{% for ingredient in item.ingredients.all %}
+					<li>{{ ingredient.ingredient.name }}: {{ ingredient.quantity }}</li>
+				{% endfor %}
+			</ul>
+		</li>
+		<a href="{% url 'recipe_detail' pk=recipe.pk %}">Recipe Link</a>
 	{% endfor %}
 </body>
 </html>
