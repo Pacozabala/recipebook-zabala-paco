@@ -8,15 +8,13 @@
 	<h1>Recipe Book</h1>
 	<h2>Please see the recipes below:</h2>
 	{% for item in recipes %}
-		<li>
 			<h3>{{ item.name }}</h3>
 			<ul>
 				{% for ingredient in item.ingredients.all %}
 					<li>{{ ingredient.ingredient.name }}: {{ ingredient.quantity }}</li>
 				{% endfor %}
 			</ul>
-		</li>
-		<a href="{% url 'recipe_detail' pk=recipe.pk %}">Recipe Link</a>
+		<a href="{% url 'ledger:recipe_detail' pk=item.pk %}">Recipe Link</a>
 	{% endfor %}
 </body>
 </html>

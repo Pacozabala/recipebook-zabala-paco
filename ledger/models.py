@@ -33,3 +33,6 @@ class RecipeIngredient(models.Model):
     
     def __str__(self):
         return f"{self.recipe}: {self.quantity} of {self.ingredient}"
+        
+    def get_absolute_url(self):
+        return reverse(self.name, args=[str(self.name)])
