@@ -14,6 +14,4 @@ class RecipeDetailView(DetailView):
     template_name = 'ledger/recipe_detail.html'
     context_object_name = 'recipe'
     
-    #def get_queryset(self):
-        #return Recipe.objects.filter(pk=self.kwargs['pk'])
     
