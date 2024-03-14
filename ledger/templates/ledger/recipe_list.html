@@ -1,20 +1,14 @@
 <!-- templates/ledger/recipe_list.html -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Recipe List</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Recipe List{% endblock %}
+{% block content %}
 	<h1>Recipe Book</h1>
 	<h2>Please see the recipes below:</h2>
 	{% for item in recipes %}
-			<h3>{{ item.name }}</h3>
-			<ul>
-				{% for ingredient in item.ingredients.all %}
-					<li>{{ ingredient.ingredient.name }}: {{ ingredient.quantity }}</li>
-				{% endfor %}
-			</ul>
-		<a href="{% url 'ledger:recipe_detail' pk=item.pk %}">Recipe Link</a>
+		<li>
+			<a href="{% url 'ledger:recipe_detail' pk=item.pk %}">{{ item.name }}</a>
+		</li>
 	{% endfor %}
-</body>
-</html>
+{% endblock %}

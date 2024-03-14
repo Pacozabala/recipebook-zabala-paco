@@ -1,11 +1,9 @@
 <!-- templates/ledger/recipe_detail.html -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>{{ recipe.name }}</title>
-</head>
-<body>
-    <h1>Recipe Book</h1>
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}{{ recipe.name }}{% endblock %}
+{% block content %}
+	<h1>Recipe Book</h1>
 	<h2>{{ recipe.name }}</h2>
     <ul>
         {% for ingredient in recipe.ingredients.all %}
@@ -13,5 +11,4 @@
         {% endfor %}
     </ul>
     <a href="{% url 'ledger:recipe_list' %}">Back to Recipe List</a>
-</body>
-</html>
+{% endblock %}
