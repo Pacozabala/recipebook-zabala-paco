@@ -1,15 +1,25 @@
-<!-- taskapp/templates/base.html -->
+<!-- templates/base.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<link rel="stylesheet" href="style.css">
-	<title>{% block title %}Insert text here{% endblock %}</title>
-	{% block styles %}{% endblock %}
+	<title>{% block title %}Recipe Book{% endblock %}</title>
 </head>
 <body>
-	<div id="content">
-		{% block content %}{% endblock %}
-	</div>
-	{% block scripts %}{% endblock %}
+    <header>
+        <h1>Recipe Book</h1>
+        {% if user.is_authenticated %}
+			<form method="POST" action="{% url 'logout' %}">
+				{% csrf_token %}
+				{{ form.as_p }}
+				<button type="submit">Logout</button>
+			</form>
+        {% else %}
+            <a href="{% url 'login' %}">Login</a>
+        {% endif %}
+    </header>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
 </body>
 </html>

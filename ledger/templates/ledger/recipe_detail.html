@@ -3,8 +3,12 @@
 {% load static %}
 {% block title %}{{ recipe.name }}{% endblock %}
 {% block content %}
-	<h1>Recipe Book</h1>
-	<h2>{{ recipe.name }}</h2>
+<h2>{{ recipe.name }} by {{ recipe.author }}</h2>
+    <ul>
+        <li>Created on {{ recipe.created_on }}</li>
+        <li>Last updated on {{ recipe.updated_on }}</li>
+    </ul>
+    <h3>Ingredients:</h3>
     <ul>
         {% for ingredient in recipe.ingredients.all %}
             <li>{{ ingredient.ingredient.name }}: {{ ingredient.quantity }}</li>

@@ -4,8 +4,8 @@
 
 {% block title %}Recipe List{% endblock %}
 {% block content %}
-	<h1>Recipe Book</h1>
-	<h2>Please see the recipes below:</h2>
+	<h2>Recipe List</h2>
+	<h3>Please see the recipes below:</h3>
 	{% for item in recipes %}
 		<li>
 			<a href="{% url 'ledger:recipe_detail' pk=item.pk %}">{{ item.name }}</a>

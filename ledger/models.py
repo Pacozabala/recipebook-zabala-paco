@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from django.contrib.auth.models import User
 
 class Ingredient(models.Model):
     name = models.CharField(max_length=50)
@@ -12,9 +13,12 @@ class Ingredient(models.Model):
 
 class Recipe(models.Model):
     name = models.CharField(max_length=50)
-    author = models.CharField(
-        max_length=100, 
-        null=True)
+    author = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        related_name='author',
+        null=True
+    )
     created_on = models.DateField(
         auto_now_add=True,
         null=True)
