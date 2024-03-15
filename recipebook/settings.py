@@ -31,6 +31,9 @@ DEBUG = os.getenv('DEBUG')
 
 ALLOWED_HOSTS = []
 
+LOGIN_URL = '/accounts/login/'
+LOGIN_REDIRECT_URL = 'ledger:recipe_list'
+LOGOUT_REDIRECT_URL = '/accounts/login/'
 
 # Application definition
 
@@ -42,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'ledger',
+    'accounts',
 ]
 
 MIDDLEWARE = [
